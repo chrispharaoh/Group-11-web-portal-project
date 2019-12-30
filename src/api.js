@@ -14,8 +14,8 @@ class Api {
         this.config = config;
     };
 
-    getDashboards = id => {
-        return fetch(`${this.config.baseUrl}/dashboards/`, {
+    getDimensions = id => {
+        return fetch(`${this.config.baseUrl}/dimensions/`, {
             method: 'GET',
             mode: 'cors',
             credentials: 'include',
@@ -24,6 +24,23 @@ class Api {
             .catch(error => error)
             .then(response => response.json());
     };
+    getCharts = ()=>{
+        return fetch(`${this.config.baseUrl}/charts.json?paging=false/R3N0O5KywZe/  `,{  method: 'GET',
+        mode: 'cors',
+        credentials: 'include',
+        headers,})
+        .catch(error => error)
+        .then(response=>{return response.json()})
+    }
+
+    getDashboards=()=>{
+        return fetch(`${this.config.baseUrl}/dashboards.json?paging=false&fields=*`, {method: 'GET',
+        mode: 'cors',
+        credentials: 'include',
+        headers,}).catch(error=>error)
+        .then(response=>response.json())
+    }
+    
 
 
 }
